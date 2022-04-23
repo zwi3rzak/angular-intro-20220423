@@ -1,6 +1,29 @@
 <p>todos works!</p>
 
+<input [(ngModel)]="text" (keyup.enter)="addTodo()" />
 
-<input [(ngModel)]="text"/>
+<button (click)="addTodo()">add</button>
 <button (click)="clear()">clear</button>
-<p>{{text}}</p>
+<p>{{ text }}</p>
+
+<div *ngIf="todos.length == 0">The list is empty</div>
+
+<ol>
+  <li *ngFor="let todo of todos">
+    <input type="checkbox" [(ngModel)]="todo.done" />
+
+    <span [ngClass]="{done: todo.done}">
+      {{ todo.text }}
+    </span>
+    <span class="priority">
+      <span [ngSwitch]="todo.priority">
+        <span *ngSwitchCase="1">HIGHT</span>
+        <span *ngSwitchCase="2">MEDIUM</span>
+        <span *ngSwitchDefault>low</span>
+      </span>
+      priority
+    </span>
+
+    <button (click)="setDone(todo)">&check;</button>
+  </li>
+</ol>
