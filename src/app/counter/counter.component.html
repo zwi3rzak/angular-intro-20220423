@@ -1,4 +1,14 @@
 
-<button (click)="decrement()">-</button>
-<p>{{ value }}</p>
-<button (click)="increment()">+</button>
+<button 
+    [disabled]="value === 0"
+    (click)="decrement()">
+    -
+</button>
+
+<p [class.big]="value>5">{{ value }}</p>
+
+<button 
+    [disabled]="value>=10"
+    (click)="increment()">
+    +
+</button>
