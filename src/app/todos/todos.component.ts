@@ -19,9 +19,14 @@ export class TodosComponent implements OnInit {
       text: this.text,
       created: Date.now(),
       done: false,
-      priority: 1,
+      priority: Math.ceil(Math.random() * 3),
     };
     this.todos.push(todo);
+    this.clear();
+  }
+
+  public setDone(todo: Todo) {
+    todo.done = true;
   }
 
   constructor() {}
