@@ -10,6 +10,11 @@ export class TodosComponent implements OnInit {
   public todos: Todo[] = [];
   public text: string = '';
 
+  public style = {
+    fontSize: '24px',
+    backgroundColor: '#eef',
+  };
+
   public clear() {
     this.text = '';
   }
