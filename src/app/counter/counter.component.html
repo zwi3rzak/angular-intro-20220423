@@ -1,7 +1,11 @@
+<button [disabled]="value === 0" (click)="decrement()">-</button>
 
-<button (click)="decrement()">-</button>
+<p
+  [class.big]="value > 50"
+  [class.medium]="value > 30"
+  [class.max]="value === 100"
+>
+  {{ value }}
+</p>
 
-<p>{{ value }}</p>
-
-<button (click)="increment()">+</button>
-
+<button [disabled]="value >= 100" (click)="increment()">+</button>
