@@ -4,10 +4,11 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import { TodosComponent } from './todos/todos.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, CounterComponent, TodosComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
