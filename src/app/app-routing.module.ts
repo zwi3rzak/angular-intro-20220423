@@ -17,11 +17,11 @@ const routes: Routes = [
     path: 'todos',
     component: TodosComponent,
   },
-  // {
-  //   path: '',
-  //   redirectTo: 'todos',
-  //   pathMatch: 'full',
-  // },
+  {
+    path: '**',
+    redirectTo: 'todos',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
