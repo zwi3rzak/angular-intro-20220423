@@ -1,6 +1,12 @@
 <div [ngClass]="{done: todoInput.done}">
     <input [(ngModel)]="todoInput.done" type="checkbox"/>
-    {{ todoInput.text }}
+
+    {{ todoInput.text | uppercase}}
+
+    <span>
+        {{ todoInput.created | date: "yyyy-mm-dd HH:mm:ss:SSS" }}
+
+    </span>
 
     <button (click)="onDelateClick()">&cross;</button>
 </div>
