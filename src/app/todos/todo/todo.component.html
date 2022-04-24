@@ -3,7 +3,9 @@
     [(ngModel)]="todoInput.done"
     type="checkbox"
   />
-  {{ todoInput.text }}
+  {{ todoInput.text | lowercase }}
+
+  <span>{{ todoInput.created | date: 'yyyy-mm-dd HH:mm:ss:SSS' }}</span>
 
   <button (click)="onDeleteClick()">
     &cross;

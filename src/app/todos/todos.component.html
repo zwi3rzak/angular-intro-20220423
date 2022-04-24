@@ -12,10 +12,12 @@
   >The list is empty</ng-container
 >
 
-<div *ngFor="let todoItem of todos">
+<div *ngFor="let todoItem of todos | slice: 0:5">
   <!--  -->
   <app-todo
     [todoInput]="todoItem"
     (delete)="deleteTodo($event)"
   ></app-todo>
 </div>
+
+<pre><code>{{ todos | json }}</code></pre>
