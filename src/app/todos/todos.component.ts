@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Todo} from './model/todo';
+import {StorageService} from './storage.service';
 
 @Component({
   selector: 'app-todos',
@@ -28,14 +29,22 @@ export class TodosComponent implements OnInit {
     };
     this.todos.push(todo);
     this.clear();
+
+    this.storageService.saveTodos(this.todos);
   }
 
   public deleteTodo(todo: Todo) {
     const index = this.todos.indexOf(todo);
     this.todos.splice(index, 1);
+
+    this.storageService.saveTodos(this.todos);
   }
 
-  constructor() {}
+  constructor(
+    private storageService: StorageService,
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.todos = this.storageService.loadTodos();
+  }
 }
