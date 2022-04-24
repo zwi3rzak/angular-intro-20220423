@@ -7,6 +7,7 @@ import {Todo} from './model/todos';
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss'],
 })
+
 export class TodosComponent implements OnInit {
   public todos: Todo[] = [];
   public text: string = 'type something';
@@ -26,9 +27,11 @@ export class TodosComponent implements OnInit {
     this.clear();
   }
 
-  public setDone(todo: Todo) {
-    todo.done = true;
-  }
+public deleteTodo(todo: Todo) {
+  const index = this.todos.indexOf(todo);
+  this.todos.splice(index, 1);
+
+}
 
   constructor() {}
 
