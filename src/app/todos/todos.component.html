@@ -1,6 +1,4 @@
-<div *ngIf="!text">
-  Type the todo below…
-</div>
+<div *ngIf="!text">Type the todo below…</div>
 
 <input
   [(ngModel)]="text"
@@ -14,6 +12,10 @@
   >The list is empty</ng-container
 >
 
-<div *ngFor="let todoItem of todos"> <!--  -->
-  <app-todo [todoInput]="todoItem"></app-todo>
+<div *ngFor="let todoItem of todos">
+  <!--  -->
+  <app-todo
+    [todoInput]="todoItem"
+    (delete)="deleteTodo($event)"
+  ></app-todo>
 </div>

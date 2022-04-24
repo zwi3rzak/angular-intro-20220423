@@ -30,8 +30,9 @@ export class TodosComponent implements OnInit {
     this.clear();
   }
 
-  public setDone(todo: Todo) {
-    todo.done = true;
+  public deleteTodo(todo: Todo) {
+    const index = this.todos.indexOf(todo);
+    this.todos.splice(index, 1);
   }
 
   constructor() {}
