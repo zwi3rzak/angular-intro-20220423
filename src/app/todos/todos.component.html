@@ -8,12 +8,15 @@
 <button (click)="addTodo()">add</button>
 <button (click)="clear()">clear</button>
 
-<ng-container *ngIf="todos.length === 0"
-  >The list is empty</ng-container
->
+<button (click)="removeAll()">
+  remove all todos
+</button>
+
+<div *ngIf="todos.length === 0">
+  The list is empty
+</div>
 
 <div *ngFor="let todoItem of todos | slice: 0:5">
-  <!--  -->
   <app-todo
     [todoInput]="todoItem"
     (delete)="deleteTodo($event)"
